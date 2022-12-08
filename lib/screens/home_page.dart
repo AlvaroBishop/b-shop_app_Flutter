@@ -1,6 +1,8 @@
 // main.dart
 import 'package:flutter/material.dart';
 
+import '../widgets/app_slider.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -35,36 +37,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-class AppSlider extends StatelessWidget {
-  const AppSlider({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 200,
-      color: Colors.black87,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Expanded(
-            child: ListView.builder(
-            itemBuilder: (context, index) => _AppImage(), 
-            itemCount: 10,
-            scrollDirection: Axis.horizontal,
-            )
-          
-          ),
-          
-        ]),
-    );
-  }
-}
-
-
 
 class _CustomAppBar extends StatelessWidget {
 
@@ -109,7 +81,7 @@ class _CustomAppBar extends StatelessWidget {
                         decoration: InputDecoration(
                           fillColor: Colors.amber,
                           focusColor: Colors.red,
-                            hintText: 'Search for something',
+                            hintText: 'Search apps',
                             prefixIcon: Icon(Icons.search),
                             suffixIcon: IconButton(onPressed: () => searchController.text = '', icon: Icon(Icons.close)),
                             
@@ -136,36 +108,4 @@ class _CustomAppBar extends StatelessWidget {
   }
 }
 
-class _AppImage extends StatelessWidget {
-  const _AppImage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 130,
-      height: 130,
-      margin: EdgeInsets.symmetric(horizontal: 10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          GestureDetector(
-            onTap: () {
-              
-            },
-            child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: FadeInImage(
-              placeholder: AssetImage('assets/no-image.jpg'),
-              image: AssetImage('assets/no-image.jpg'),
-              width: 130,
-              height: 130,
-              fit: BoxFit.cover,
-            ),
-          )
-          ),
-         
-        ],
-      ),
-    );
-  }
-}
