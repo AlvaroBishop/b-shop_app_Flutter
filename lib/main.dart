@@ -1,11 +1,11 @@
 // main.dart
-import 'package:b_shop_app/moviesApp/screens/home_screen.dart';
-import 'package:b_shop_app/screens/app_details_screen.dart';
+import 'package:b_shop_app/movies_app/screens/home_screen.dart';
+import 'package:b_shop_app/personal_expenses_app/screens/my_home_page_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'moviesApp/provider/movies_provider.dart';
-import 'moviesApp/screens/details_screen.dart';
+import 'movies_app/provider/movies_provider.dart';
+import 'movies_app/screens/details_screen.dart';
 import 'screens/home_page.dart';
 
 void main() {
@@ -37,13 +37,29 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         // Remove the debug banner
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            primarySwatch: Colors.green,
+            errorColor: Colors.red[900],
+            fontFamily: 'Quicksand',
+            textTheme: ThemeData.light().textTheme.copyWith(
+                    titleLarge: const TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                )),
+            appBarTheme: const AppBarTheme(
+                titleTextStyle: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ))),
         title: 'b-shop',
         initialRoute: 'home',
         routes: {
           'home': (_) =>  const HomePage(),
           'details': (_) => const DetailsScreen(),
           'movies' :(context) => const HomeScreen(),
-          // 'expenses' :(context) => 
+          'expenses' :(context) => const MyHomePage(),
         },
     ); 
   }

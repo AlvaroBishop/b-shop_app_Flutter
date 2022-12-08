@@ -1,4 +1,4 @@
-import 'package:b_shop_app/moviesApp/screens/home_screen.dart';
+import 'package:b_shop_app/movies_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppSlider extends StatelessWidget {
@@ -30,6 +30,7 @@ class AppSlider extends StatelessWidget {
             child: ListView.builder(
             itemBuilder: (context, index) {
               if(index < apps.length) {
+                
                 return _AppImage(appImg: apps[index]['appImg'] as String, appName: apps[index]['appName'] as String,);
               } 
               return _AppImage();
@@ -67,6 +68,7 @@ class _AppImage extends StatelessWidget {
               onTap: () {
                 if(appName != null)
                 {
+                  print(appName);
                   Navigator.pushNamed(context, appName!);
                 }
               },

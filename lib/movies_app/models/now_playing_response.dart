@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:b_shop_app/moviesApp/models/models.dart';
+import 'package:b_shop_app/movies_app/models/models.dart';
 
 class NowPlayingResponse {
   NowPlayingResponse({

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:b_shop_app/moviesApp/helpers/debouncer.dart';
+import 'package:b_shop_app/movies_app/helpers/debouncer.dart';
 
 import '../models/models.dart';
 

@@ -1,8 +1,8 @@
-import 'package:b_shop_app/moviesApp/widgets/card_swiper.dart';
-import 'package:b_shop_app/moviesApp/widgets/movie_slider.dart';
+import 'package:b_shop_app/movies_app/widgets/card_swiper.dart';
+import 'package:b_shop_app/movies_app/widgets/movie_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:b_shop_app/moviesApp/search/search_delegate.dart';
+import 'package:b_shop_app/movies_app/search/search_delegate.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/movies_provider.dart';
@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Películas en cines'),
+        title: const Text('Films in theaters'),
         actions: [
           IconButton(onPressed: () => showSearch(context: context, delegate: MovieSearchDelegate()),// delegate es un widget o clase que tiene ciertas condiciones
           icon: const Icon(Icons.search_rounded))
