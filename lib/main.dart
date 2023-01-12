@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         // Remove the debug banner
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            primarySwatch: Colors.green,
+            primarySwatch: Colors.teal,
             errorColor: Colors.red[900],
             fontFamily: 'Quicksand',
             textTheme: ThemeData.light().textTheme.copyWith(
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
         title: 'b-shop',
         initialRoute: 'home',
         routes: {
-          'home': (_) =>  const HomePage(),
+          'home': (_) =>  HomePage(),
           'details': (_) => const DetailsScreen(),
           'movies' :(context) => const HomeScreen(),
           'expenses' :(context) => const MyHomePage(),

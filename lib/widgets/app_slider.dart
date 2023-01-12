@@ -2,8 +2,10 @@ import 'package:b_shop_app/movies_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppSlider extends StatelessWidget {
+  final String? title;
+
   const AppSlider({
-    Key? key,
+    Key? key, this.title,
   }) : super(key: key);
 
   @override
@@ -18,14 +20,28 @@ class AppSlider extends StatelessWidget {
         'appName' : 'expenses',
       },
     ];
-  
+
+    
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
-      height: 200,
+      height: 220,
       color: Colors.black87,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (title != null) 
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Text(
+                title!,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.tealAccent, fontFamily:  'OpenSans',),
+              ),
+            ),
+            
+          const SizedBox(
+            height: 5,
+          ),
           Expanded(
             child: ListView.builder(
             itemBuilder: (context, index) {
@@ -33,7 +49,7 @@ class AppSlider extends StatelessWidget {
                 
                 return _AppImage(appImg: apps[index]['appImg'] as String, appName: apps[index]['appName'] as String,);
               } 
-              return _AppImage();
+              return const _AppImage();
             }, 
             itemCount: 10,
             scrollDirection: Axis.horizontal,
@@ -57,9 +73,10 @@ class _AppImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       width: 130,
       height: 130,
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -75,30 +92,36 @@ class _AppImage extends StatelessWidget {
               child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(
-                placeholder: AssetImage('assets/no-image.jpg'),
+                placeholder: const AssetImage('assets/no-image.jpg'),
                 image: NetworkImage(appImg!),
-                width: 130,
-                height: 130,
+                width: 110,
+                height: 110,
                 fit: BoxFit.cover,
               ),
             )
             ),
           if(appImg == null)
-          GestureDetector(
-            onTap: () {
-              
-            },
-            child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: FadeInImage(
-              placeholder: AssetImage('assets/no-image.jpg'),
-              image: AssetImage('assets/no-image.jpg'),
-              width: 130,
-              height: 130,
-              fit: BoxFit.cover,
+            GestureDetector(
+                onTap: () {
+                  
+                },
+                child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: const FadeInImage(
+                  placeholder: AssetImage('assets/no-image.jpg'),
+                  image: AssetImage('assets/no-image.jpg'),
+                  width: 110,
+                  height: 110,
+                  fit: BoxFit.cover,
+                ),
+              )
             ),
-          )
+          Container(
+            
+            child: Text("Test")
+          
           ),
+
         ],
       ),
     );

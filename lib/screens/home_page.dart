@@ -1,4 +1,5 @@
 // main.dart
+import 'package:b_shop_app/widgets/image_card.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/app_slider.dart';
@@ -16,19 +17,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: CustomScrollView(
         slivers: [
-          _CustomAppBar(),
+          const _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              AppSlider(),
-              const SizedBox(
-                height: 400,
-                
+              const AppSlider(title: 'Popular Apps'),
+              
+              Container(
+                padding: EdgeInsets.only(top: 20),
+                color: Colors.black87,
+                child:  const ImageCard(),
               ),
+              const AppSlider(title: 'Educational Apps'),
+              const AppSlider(title: 'Messaging Apps'),
               Container(
                 height: 1000,
-                color: Colors.black,
+                color: Colors.black87,
               ),
             ]),
           ),
@@ -51,60 +57,42 @@ class _CustomAppBar extends StatelessWidget {
       print(searchController.text);
     }
     return SliverAppBar(
-            
-            expandedHeight: 80,
-            collapsedHeight: 60,
             floating: true,
-            pinned: false,
-            snap: true,
-            titleTextStyle: TextStyle(height: 100),
-            centerTitle: true,
-            title: AppBar(
-              toolbarHeight: 60,
-              elevation: 0,
-              title: Container(
-
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(70)),
-                ),
-                height: 60,
-                padding: EdgeInsets.only(bottom: 10),
+            pinned: true,
+            snap: false,
+            centerTitle: false,
+            title: const Text('B-shop'),
+            titleTextStyle: const TextStyle(color: Colors.tealAccent, fontFamily:  'OpenSans', fontSize: 35, fontWeight: FontWeight.bold),
+            actions: [
+              Container(
                 
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                      child: TextField(
-                        controller: searchController,
-                        onChanged: (value) => _search(),
-                        decoration: InputDecoration(
-                          fillColor: Colors.amber,
-                          focusColor: Colors.red,
-                            hintText: 'Search apps',
-                            prefixIcon: Icon(Icons.search),
-                            suffixIcon: IconButton(onPressed: () => searchController.text = '', icon: Icon(Icons.close)),
-                            
-                          ),
-                      ),
-                    ),
-                    Container(
-                      
-                      margin: const EdgeInsets.only(right: 10),
+                      margin: const EdgeInsets.only(right: 15),
                       child: CircleAvatar(
-                        maxRadius: 15,
+                        maxRadius: 19,
                         backgroundColor: Colors.green[900],
-                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'),
+                        backgroundImage: const NetworkImage('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'),
                       ),
                     )
-                  ],
+            ],
+            bottom: AppBar(
+              title: Container(
+                width: double.infinity,
+                height: 40,
+                color: Colors.white,
+                child:  Center(
+                  child: TextField(
+                    controller: searchController,
+                    onChanged: (value) => _search(),
+                    decoration: InputDecoration(
+                        hintText: 'Search apps',
+                        prefixIcon: const Icon(Icons.search),
+                        suffixIcon: IconButton(onPressed: () => searchController.text = '', icon: const Icon(Icons.close)),
+                  ),
                 ),
               ),
             ),
-            
-            
-            
-          );
+          )
+    );
   }
 }
 
