@@ -1,5 +1,5 @@
 // main.dart
-import 'package:b_shop_app/widgets/image_card.dart';
+import 'package:b_shop_app/widgets/card_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/app_slider.dart';
@@ -26,9 +26,9 @@ class _HomePageState extends State<HomePage> {
               const AppSlider(title: 'Popular Apps'),
               
               Container(
-                padding: EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 20),
                 color: Colors.black87,
-                child:  const ImageCard(),
+                child:  const CardSlider(),
               ),
               const AppSlider(title: 'Educational Apps'),
               const AppSlider(title: 'Messaging Apps'),

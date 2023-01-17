@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ImageCard extends StatelessWidget {
+class CardSlider extends StatelessWidget {
 
-  const ImageCard({super.key});
+  const CardSlider({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext lcontext) {
     return Container(
       width: double.infinity,
       height: 160,
@@ -16,10 +16,10 @@ class ImageCard extends StatelessWidget {
           Expanded(
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: [
-                const CustomCard(firstLinearColor: Colors.tealAccent, secondLinearColor: Colors.yellowAccent, title: 'Learn new things', subtitle: 'Apps to learn.'),
-                const CustomCard(firstLinearColor: Colors.deepPurpleAccent, secondLinearColor: Colors.cyanAccent, title: 'Relax yourself', subtitle: 'Relaxing apps'),
-                const CustomCard(firstLinearColor: Colors.orangeAccent, secondLinearColor: Colors.redAccent, title: 'Discover your passions', subtitle: 'Inspire yourself'),
+              children: const [
+                CustomCard(firstLinearColor: Colors.tealAccent, secondLinearColor: Colors.yellowAccent, title: 'Learn new things', subtitle: 'Apps to learn.'),
+                CustomCard(firstLinearColor: Colors.deepPurpleAccent, secondLinearColor: Colors.cyanAccent, title: 'Relax yourself', subtitle: 'Relaxing apps'),
+                CustomCard(firstLinearColor: Colors.orangeAccent, secondLinearColor: Colors.redAccent, title: 'Discover your passions', subtitle: 'Inspire yourself'),
                 
                 ]
             ),

@@ -1,5 +1,6 @@
 import 'package:b_shop_app/movies_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import '../string_extension.dart';
 
 class AppSlider extends StatelessWidget {
   final String? title;
@@ -13,19 +14,19 @@ class AppSlider extends StatelessWidget {
     List<Map<String, Object>> apps = [ 
       {
         'appImg' : 'https://cdn.pixabay.com/photo/2016/07/04/11/25/clapperboard-1496440_960_720.png',
-        'appName' : 'movies',
+        'appName' : 'Movies',
       },
       {
         'appImg' : 'https://cdn.pixabay.com/photo/2021/03/02/17/37/accounting-6063321_960_720.png',
-        'appName' : 'expenses',
+        'appName' : 'Expenses',
       },
     ];
 
     
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
-      height: 220,
+      height: 235,
       color: Colors.black87,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,9 +48,9 @@ class AppSlider extends StatelessWidget {
             itemBuilder: (context, index) {
               if(index < apps.length) {
                 
-                return _AppImage(appImg: apps[index]['appImg'] as String, appName: apps[index]['appName'] as String,);
+                return _AppImage(app: apps[index],);
               } 
-              return const _AppImage();
+              return  const _AppImage();
             }, 
             itemCount: 10,
             scrollDirection: Axis.horizontal,
@@ -66,41 +67,43 @@ class AppSlider extends StatelessWidget {
 
 
 class _AppImage extends StatelessWidget {
-  final String? appImg;
-  final String? appName;
-  const _AppImage({super.key, this.appImg, this.appName});
+  final Map? app;
+
+  const _AppImage({super.key,  this.app});
 
   @override
   Widget build(BuildContext context) {
+    
+
     return Container(
 
       width: 130,
-      height: 130,
+      height: 140,
       margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if(appImg != null)
+          if(app != null)
             GestureDetector(
               onTap: () {
-                if(appName != null)
+                if(app!['appName'] != null)
                 {
-                  print(appName);
-                  Navigator.pushNamed(context, appName!);
+                  print(app!['appName']);
+                  Navigator.pushNamed(context, app!['appName']!);
                 }
               },
               child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(
                 placeholder: const AssetImage('assets/no-image.jpg'),
-                image: NetworkImage(appImg!),
+                image: NetworkImage(app!['appImg'] as String),
                 width: 110,
                 height: 110,
                 fit: BoxFit.cover,
               ),
             )
             ),
-          if(appImg == null)
+          if(app == null)
             GestureDetector(
                 onTap: () {
                   
@@ -116,11 +119,19 @@ class _AppImage extends StatelessWidget {
                 ),
               )
             ),
-          Container(
-            
-            child: Text("Test")
-          
-          ),
+            if(app != null)
+              Container(
+                
+                padding: const EdgeInsets.all(8),
+                
+                child:  Column(
+                  children: [
+                    Text(app!["appName"], style: TextStyle(color: Colors.white),),
+                    Icon(Icons.star, size: 8,)
+                  ],
+                )
+              
+              ),
 
         ],
       ),

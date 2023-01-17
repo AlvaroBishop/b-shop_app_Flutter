@@ -57,9 +57,9 @@ class MyApp extends StatelessWidget {
         initialRoute: 'home',
         routes: {
           'home': (_) =>  HomePage(),
-          'details': (_) => const DetailsScreen(),
-          'movies' :(context) => const HomeScreen(),
-          'expenses' :(context) => const MyHomePage(),
+          'details': (context) => const DetailsScreen(),
+          'Movies' :(context) => const HomeScreen(),
+          'Expenses' :(context) => const MyHomePage(),
         },
     ); 
   }
