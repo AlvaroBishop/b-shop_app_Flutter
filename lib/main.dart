@@ -36,33 +36,33 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        // Remove the debug banner
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            primarySwatch: Colors.teal,
-            errorColor: Colors.red[900],
-            fontFamily: 'Quicksand',
-            textTheme: ThemeData.light().textTheme.copyWith(
-                    titleLarge: const TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                )),
-            appBarTheme: const AppBarTheme(
-                titleTextStyle: TextStyle(
-              fontFamily: 'OpenSans',
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ))),
-        title: 'b-shop',
-        initialRoute: 'appDetails',
-        routes: {
-          'home': (_) =>  const HomePage(),
-          'details': (context) => const DetailsScreen(),
-          'appDetails':(context) => const AppDetails(),
-          'Movies' :(context) => const HomeScreen(),
-          'Expenses' :(context) => const MyHomePage(),
-        },
-    ); 
+      // Remove the debug banner
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primarySwatch: Colors.teal,
+          errorColor: Colors.red[900],
+          fontFamily: 'Quicksand',
+          textTheme: ThemeData.light().textTheme.copyWith(
+                  titleLarge: const TextStyle(
+                fontFamily: 'OpenSans',
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              )),
+          appBarTheme: const AppBarTheme(
+              titleTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ))),
+      title: 'b-shop',
+      initialRoute: 'home',
+      routes: {
+        'home': (_) => const HomePage(),
+        'details': (context) => const DetailsScreen(),
+        'appDetails': (context) => const AppDetails(),
+        'Movies': (context) => const HomeScreen(),
+        'Expenses': (context) => const MyHomePage(),
+      },
+    );
   }
 }

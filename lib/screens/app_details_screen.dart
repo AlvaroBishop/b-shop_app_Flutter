@@ -1,10 +1,7 @@
 // main.dart
 import 'package:b_shop_app/widgets/app_details_slider.dart';
 import 'package:b_shop_app/widgets/card_details_slider.dart';
-import 'package:b_shop_app/widgets/card_slider.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/app_slider.dart';
 
 class AppDetails extends StatefulWidget {
   const AppDetails({Key? key}) : super(key: key);
@@ -16,6 +13,17 @@ class AppDetails extends StatefulWidget {
 class _AppDetailsState extends State<AppDetails> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Map;
+    print(args["algo"]);
+
+    ImageProvider<Object> getImage() {
+      var image = (args != null)
+          ? NetworkImage(args["appImg"])
+          : AssetImage('assets/no-image.jpg');
+
+      return image as ImageProvider<Object>;
+    }
+
     return Scaffold(
       backgroundColor: Colors.black87,
       body: CustomScrollView(
@@ -29,9 +37,9 @@ class _AppDetailsState extends State<AppDetails> {
                 child: Row(children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: const FadeInImage(
+                    child: FadeInImage(
                       placeholder: AssetImage('assets/no-image.jpg'),
-                      image: AssetImage('assets/no-image.jpg'),
+                      image: getImage(),
                       width: 80,
                       height: 80,
                       fit: BoxFit.cover,
@@ -41,9 +49,9 @@ class _AppDetailsState extends State<AppDetails> {
                     margin: const EdgeInsets.all(15),
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           Text(
-                            "App Name",
+                            args["appName"],
                             style: TextStyle(
                                 fontSize: 26,
                                 color: Colors.white,
@@ -53,7 +61,7 @@ class _AppDetailsState extends State<AppDetails> {
                             height: 5,
                           ),
                           Text(
-                            "App Name.com",
+                            "${args["appName"]}.com",
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.teal,
@@ -191,11 +199,11 @@ class _AppDetailsState extends State<AppDetails> {
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: [
-                                          const Text(
+                                        children: const [
+                                          Text(
                                               "This app may collect these data types"),
-                                          const SizedBox(height: 10),
-                                          const Text(
+                                          SizedBox(height: 10),
+                                          Text(
                                               "Location, Personal info and 5 others"),
                                         ],
                                       ),
