@@ -124,13 +124,12 @@ class _AppImage extends StatelessWidget {
                 child:  Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(app!["appName"], style: TextStyle(color: Colors.white),),
+                    Text(app!["appName"], style: const TextStyle(color: Colors.white),),
                     Row(
                       
-                      children: [
-                      Text("4.6", style: TextStyle(color: Colors.white),),
-                      Icon(Icons.star, size: 12, color: Colors.white,)
-
+                      children: const [
+                        Text("4.6", style: TextStyle(color: Colors.white),),
+                        Icon(Icons.star, size: 12, color: Colors.white,)
                     ],)
                   ],
                 )

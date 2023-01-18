@@ -41,7 +41,6 @@ class _AppDetailsState extends State<AppDetails> {
                     ),
                     Container(
                       margin: EdgeInsets.all(15),
-                      color: Colors.green,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
