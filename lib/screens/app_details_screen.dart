@@ -1,5 +1,6 @@
 // main.dart
 import 'package:b_shop_app/widgets/app_details_slider.dart';
+import 'package:b_shop_app/widgets/card_details_slider.dart';
 import 'package:b_shop_app/widgets/card_slider.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class _AppDetailsState extends State<AppDetails> {
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 height: 100,
                 child: Row(
                   children: [
@@ -40,27 +41,43 @@ class _AppDetailsState extends State<AppDetails> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(15),
+                      margin: const EdgeInsets.all(15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text("App Name", style: TextStyle(fontSize: 26, color: Colors.white, fontFamily: 'OpenSans'),),
                           SizedBox(height: 5,),
-                          Text("App Name.com", style: TextStyle(fontSize: 15, color: Colors.tealAccent, fontFamily: 'OpenSans'),),
+                          Text("App Name.com", style: TextStyle(fontSize: 15, color: Colors.teal, fontFamily: 'OpenSans'),),
                         ]
                         ),
                     )
                   ]
                   ),
               ),
-              AppDetailsSlider(),
+              const AppDetailsSlider(), 
               Container(
-                height: 80,
-                color: Colors.yellow,
+                height: 35,
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: ElevatedButton(
+                  onPressed:() {
+                    
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.teal,
+                textStyle:
+                    const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18),
+                    )
+                  ), 
+                  child: const Text('Coming Soon'),
+                ),
               ),
               Container(
-                height: 150,
-                color: Colors.amber,
+                height: 200,
+                color: Colors.green,
+                child: CardDetailsSlider(),
               ),
               Container(
                 height: 500,

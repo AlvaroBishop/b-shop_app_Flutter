@@ -11,11 +11,10 @@ class AppDetailsSlider extends StatelessWidget {
       height: 75,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: const [
           
           Expanded(
             child: CustomDetailsCard()
-
           ),
           
         ]),
@@ -95,12 +94,10 @@ class CustomDetailsCard extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            
+                          children: const [
                             Icon(Icons.download, size: 20, color: Colors.white,),
                             SizedBox(width: 2,),
                             Text("12MB", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white),),
-                            
                           ],
                         ),
                       ),
@@ -124,10 +121,10 @@ class CustomDetailsCard extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
+                          children: const [
                             
                             FadeInImage(
-                              placeholder: const AssetImage('assets/no-image.jpg'),
+                              placeholder: AssetImage('assets/no-image.jpg'),
                               image: AssetImage("assets/E.png"),
                               width: 35,
                               height: 35,
