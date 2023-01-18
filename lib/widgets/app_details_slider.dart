@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 
 class AppDetailsSlider extends StatelessWidget {
-  const AppDetailsSlider({super.key});
+  final Map args;
+  const AppDetailsSlider({super.key, required this.args});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 75,
-      child:
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
-        Expanded(child: CustomDetailsCard()),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Expanded(
+            child: CustomDetailsCard(
+          args: args,
+        )),
       ]),
     );
   }
 }
 
 class CustomDetailsCard extends StatelessWidget {
-  const CustomDetailsCard({super.key});
+  final Map args;
+  const CustomDetailsCard({super.key, required this.args});
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +47,9 @@ class CustomDetailsCard extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          '4.5',
+                          args["stars"],
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
@@ -59,9 +63,9 @@ class CustomDetailsCard extends StatelessWidget {
                       ],
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Text(
-                          "100K reviews",
+                          '${args["reviews"]}K reviews',
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
@@ -100,7 +104,7 @@ class CustomDetailsCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Icon(
                       Icons.download,
                       size: 20,
@@ -110,7 +114,7 @@ class CustomDetailsCard extends StatelessWidget {
                       width: 2,
                     ),
                     Text(
-                      "12MB",
+                      args["size"],
                       style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
@@ -173,9 +177,9 @@ class CustomDetailsCard extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          '1M+',
+                          '${args["downloads"]}+',
                           style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.bold,

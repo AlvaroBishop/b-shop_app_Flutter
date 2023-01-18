@@ -1,4 +1,4 @@
-import 'package:b_shop_app/movies_app/screens/home_screen.dart';
+import 'package:b_shop_app/auxiliar/apps.dart';
 import 'package:flutter/material.dart';
 
 class AppSlider extends StatelessWidget {
@@ -11,19 +11,6 @@ class AppSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> apps = [
-      {
-        'appImg':
-            'https://cdn.pixabay.com/photo/2016/07/04/11/25/clapperboard-1496440_960_720.png',
-        'appName': 'Movies',
-      },
-      {
-        'appImg':
-            'https://cdn.pixabay.com/photo/2021/03/02/17/37/accounting-6063321_960_720.png',
-        'appName': 'Expenses',
-      },
-    ];
-
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,

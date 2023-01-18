@@ -1,4 +1,5 @@
 // main.dart
+import 'package:b_shop_app/auxiliar/apps.dart';
 import 'package:b_shop_app/widgets/app_details_slider.dart';
 import 'package:b_shop_app/widgets/card_details_slider.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +15,11 @@ class _AppDetailsState extends State<AppDetails> {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Map;
-    print(args["algo"]);
 
     ImageProvider<Object> getImage() {
       var image = (args != null)
           ? NetworkImage(args["appImg"])
-          : AssetImage('assets/no-image.jpg');
+          : const AssetImage('assets/no-image.jpg');
 
       return image as ImageProvider<Object>;
     }
@@ -38,7 +38,7 @@ class _AppDetailsState extends State<AppDetails> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: FadeInImage(
-                      placeholder: AssetImage('assets/no-image.jpg'),
+                      placeholder: const AssetImage('assets/no-image.jpg'),
                       image: getImage(),
                       width: 80,
                       height: 80,
@@ -52,17 +52,17 @@ class _AppDetailsState extends State<AppDetails> {
                         children: [
                           Text(
                             args["appName"],
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 26,
                                 color: Colors.white,
                                 fontFamily: 'OpenSans'),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
                             "${args["appName"]}.com",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 15,
                                 color: Colors.teal,
                                 fontFamily: 'OpenSans'),
@@ -71,7 +71,9 @@ class _AppDetailsState extends State<AppDetails> {
                   )
                 ]),
               ),
-              const AppDetailsSlider(),
+              AppDetailsSlider(
+                args: args,
+              ),
               Container(
                 height: 35,
                 margin: const EdgeInsets.symmetric(vertical: 10),
@@ -117,35 +119,25 @@ class _AppDetailsState extends State<AppDetails> {
                       padding: const EdgeInsets.only(top: 20.0),
                       child: Row(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(3.5),
-                            child: Container(
-                              margin: const EdgeInsets.only(right: 20),
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey)),
-                              height: 30,
-                              width: 80,
-                              child: const Center(
-                                  child: Text(
-                                "Test",
-                                style: TextStyle(color: Colors.grey),
-                              )),
-                            ),
-                          ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(3.5),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey)),
-                              height: 30,
-                              width: 80,
-                              child: const Center(
-                                  child: Text(
-                                "Test",
-                                style: TextStyle(color: Colors.grey),
-                              )),
-                            ),
-                          ),
+                          ...args['tags'].map((tag) {
+                            return ClipRRect(
+                              borderRadius: BorderRadius.circular(3.5),
+                              child: Container(
+                                margin: const EdgeInsets.only(right: 20),
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.grey)),
+                                height: 35,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Center(
+                                      child: Text(
+                                    tag,
+                                    style: const TextStyle(color: Colors.grey),
+                                  )),
+                                ),
+                              ),
+                            );
+                          }),
                         ],
                       ),
                     )
@@ -181,7 +173,9 @@ class _AppDetailsState extends State<AppDetails> {
                                       child: Column(
                                         children: [
                                           const Text(
-                                              "No data shared with third parties"),
+                                              "No data shared with third parties",
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                         ],
                                       ),
                                     )
@@ -201,10 +195,14 @@ class _AppDetailsState extends State<AppDetails> {
                                             CrossAxisAlignment.start,
                                         children: const [
                                           Text(
-                                              "This app may collect these data types"),
+                                              "This app may collect these data types",
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                           SizedBox(height: 10),
                                           Text(
-                                              "Location, Personal info and 5 others"),
+                                              "Location, Personal info and 5 others",
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                         ],
                                       ),
                                     )
@@ -221,7 +219,9 @@ class _AppDetailsState extends State<AppDetails> {
                                           horizontal: 20),
                                       child: Column(
                                         children: [
-                                          const Text("Data is encrypted"),
+                                          const Text("Data is encrypted",
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                         ],
                                       ),
                                     )
@@ -239,7 +239,9 @@ class _AppDetailsState extends State<AppDetails> {
                                       child: Column(
                                         children: [
                                           const Text(
-                                              "You can request that data to be deleted"),
+                                              "You can request that data to be deleted",
+                                              style: TextStyle(
+                                                  color: Colors.grey)),
                                         ],
                                       ),
                                     )
