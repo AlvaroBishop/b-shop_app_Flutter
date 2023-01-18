@@ -1,6 +1,5 @@
 import 'package:b_shop_app/movies_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import '../string_extension.dart';
 
 class AppSlider extends StatelessWidget {
   final String? title;
@@ -26,7 +25,7 @@ class AppSlider extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
-      height: 235,
+      height: 240,
       color: Colors.black87,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,13 +120,18 @@ class _AppImage extends StatelessWidget {
             ),
             if(app != null)
               Container(
-                
-                padding: const EdgeInsets.all(8),
-                
+                margin: const EdgeInsets.all(10),
                 child:  Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(app!["appName"], style: TextStyle(color: Colors.white),),
-                    Icon(Icons.star, size: 8,)
+                    Row(
+                      
+                      children: [
+                      Text("4.6", style: TextStyle(color: Colors.white),),
+                      Icon(Icons.star, size: 12, color: Colors.white,)
+
+                    ],)
                   ],
                 )
               

@@ -1,6 +1,7 @@
 // main.dart
 import 'package:b_shop_app/movies_app/screens/home_screen.dart';
 import 'package:b_shop_app/personal_expenses_app/screens/my_home_page_screen.dart';
+import 'package:b_shop_app/screens/app_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -54,10 +55,11 @@ class MyApp extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ))),
         title: 'b-shop',
-        initialRoute: 'home',
+        initialRoute: 'appDetails',
         routes: {
-          'home': (_) =>  HomePage(),
+          'home': (_) =>  const HomePage(),
           'details': (context) => const DetailsScreen(),
+          'appDetails':(context) => const AppDetails(),
           'Movies' :(context) => const HomeScreen(),
           'Expenses' :(context) => const MyHomePage(),
         },
