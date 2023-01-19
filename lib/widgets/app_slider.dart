@@ -1,16 +1,17 @@
-import 'package:b_shop_app/auxiliar/apps.dart';
 import 'package:flutter/material.dart';
 
 class AppSlider extends StatelessWidget {
+  final List<Map<String, Object>> apps;
   final String? title;
 
   const AppSlider({
     Key? key,
-    this.title,
+    this.title, required this.apps,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    apps.shuffle();
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
@@ -43,7 +44,7 @@ class AppSlider extends StatelessWidget {
             }
             return const _AppImage();
           },
-          itemCount: 10,
+          itemCount: apps.length,
           scrollDirection: Axis.horizontal,
         )),
       ]),
@@ -107,12 +108,12 @@ class _AppImage extends StatelessWidget {
                       style: const TextStyle(color: Colors.white),
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Text(
-                          "4.6",
-                          style: TextStyle(color: Colors.white),
+                          app!["stars"],
+                          style: const TextStyle(color: Colors.white),
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           size: 12,
                           color: Colors.white,

@@ -1,6 +1,8 @@
 // main.dart
 import 'package:b_shop_app/widgets/card_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:b_shop_app/auxiliar/apps.dart';
+
 
 import '../widgets/app_slider.dart';
 
@@ -12,10 +14,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
+  var apps1 = apps;
+  var apps2 = apps;
+  var apps3 = apps;
+
 
   @override
   Widget build(BuildContext context) {
+    apps1.shuffle();
+    apps2.shuffle();
+    apps3.shuffle();
     return Scaffold(
       backgroundColor: Colors.black87,
       body: CustomScrollView(
@@ -23,18 +31,18 @@ class _HomePageState extends State<HomePage> {
           const _CustomAppBar(),
           SliverList(
             delegate: SliverChildListDelegate([
-              const AppSlider(title: 'Popular Apps'),
+              AppSlider(title: 'Popular Apps', apps: apps1,),
               
               Container(
                 padding: const EdgeInsets.only(top: 20),
                 color: Colors.black87,
                 child:  const CardSlider(),
               ),
-              const AppSlider(title: 'Educational Apps'),
-              const AppSlider(title: 'Messaging Apps'),
+              AppSlider(title: 'Educational Apps', apps: apps2,),
+              AppSlider(title: 'Messaging Apps', apps: apps3,),
               Container(
-                height: 1000,
-                color: Colors.black87,
+                height: 100,
+                child: const Center(child: Text("No rights reserved 2023", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
               ),
             ]),
           ),

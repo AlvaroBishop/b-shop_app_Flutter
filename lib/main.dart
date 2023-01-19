@@ -60,8 +60,8 @@ class MyApp extends StatelessWidget {
         'home': (_) => const HomePage(),
         'details': (context) => const DetailsScreen(),
         'appDetails': (context) => const AppDetails(),
-        'Movies': (context) => const HomeScreen(),
-        'Expenses': (context) => const MyHomePage(),
+        'movies': (context) => const HomeScreen(),
+        'expenses': (context) => const MyHomePage(),
       },
     );
   }
