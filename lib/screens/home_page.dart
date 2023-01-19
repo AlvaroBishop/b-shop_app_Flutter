@@ -14,9 +14,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var apps1 = apps;
-  var apps2 = apps;
-  var apps3 = apps;
+  var apps1 = List<Map<String, Object>>.from(apps);
+  var apps2 = List<Map<String, Object>>.from(apps);
+  var apps3 = List<Map<String, Object>>.from(apps);
 
 
   @override

@@ -11,7 +11,6 @@ class AppSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    apps.shuffle();
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
