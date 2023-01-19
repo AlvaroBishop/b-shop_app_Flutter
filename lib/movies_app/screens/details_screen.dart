@@ -11,6 +11,7 @@ class DetailsScreen extends StatelessWidget {
     final Movie movie = ModalRoute.of(context)?.settings.arguments as Movie;
 
     return Scaffold(
+      backgroundColor: Colors.black87,
       body: CustomScrollView(
         slivers: [
           _CustomAppBar(movie: movie,),
@@ -100,14 +101,14 @@ class _PosterAndTitle extends StatelessWidget {
             children: [
               Text(
                 movie.title,
-                style: textTheme.headline5,
+                style: TextStyle(color: Colors.white, fontSize: 20),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
         
               Text(
                 movie.originalTitle,
-                style: textTheme.subtitle1,
+                style: TextStyle(color: Colors.white),
                 overflow: TextOverflow.ellipsis,
               ),
               Row(
@@ -122,7 +123,7 @@ class _PosterAndTitle extends StatelessWidget {
                   ),
                   Text(
                     movie.voteAverage.toString(),
-                    style: textTheme.caption,
+                    style: TextStyle(color: Colors.white),
                   )
                 ],
               )
@@ -144,7 +145,7 @@ class _Overview extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: Text(
         movie.overview,
-        style: Theme.of(context).textTheme.subtitle1,
+        style: TextStyle(color: Colors.white),
         textAlign: TextAlign.justify,
       ),
     );

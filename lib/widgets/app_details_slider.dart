@@ -163,14 +163,7 @@ class CustomDetailsCard extends StatelessWidget {
             child: ClipPath(
               child: Container(
                 padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
-                  border: Border(
-                    right: BorderSide(
-                      color: Colors.greenAccent,
-                      width: .4,
-                    ),
-                  ),
-                ),
+
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,

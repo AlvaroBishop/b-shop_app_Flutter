@@ -33,8 +33,8 @@ class _HomePageState extends State<HomePage> {
               const AppSlider(title: 'Educational Apps'),
               const AppSlider(title: 'Messaging Apps'),
               Container(
-                height: 1000,
-                color: Colors.black87,
+                height: 100,
+                child: const Center(child: Text("No rights reserved 2023", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),)),
               ),
             ]),
           ),

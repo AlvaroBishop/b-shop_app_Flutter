@@ -79,7 +79,12 @@ class _AppDetailsState extends State<AppDetails> {
                 margin: const EdgeInsets.symmetric(vertical: 10),
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if(args["appDirection"] != Null)
+                    {
+                      Navigator.pushNamed(context, args["appDirection"]);
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.teal,
                       textStyle: const TextStyle(
@@ -87,7 +92,7 @@ class _AppDetailsState extends State<AppDetails> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       )),
-                  child: const Text('Coming Soon'),
+                  child: (args["appDirection"] != Null) ? const Text('Open') : const Text('Coming Soon'),
                 ),
               ),
               Container(
@@ -144,17 +149,17 @@ class _AppDetailsState extends State<AppDetails> {
                   ],
                 ),
               ),
-              Container(
-                height: 300,
-                child: Center(
+
+              Center(
+                child: Container(
+                  height: 300,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(3.5),
                     child: Container(
-                      margin: const EdgeInsets.only(right: 20),
                       decoration:
                           BoxDecoration(border: Border.all(color: Colors.grey)),
                       height: 400,
-                      width: MediaQuery.of(context).size.width * .85,
+                      width: MediaQuery.of(context).size.width * .90,
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),
                         child: Center(
@@ -167,16 +172,18 @@ class _AppDetailsState extends State<AppDetails> {
                                       Icons.share_outlined,
                                       color: Colors.grey,
                                     ),
-                                    Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 20),
-                                      child: Column(
-                                        children: [
-                                          const Text(
-                                              "No data shared with third parties",
-                                              style: TextStyle(
-                                                  color: Colors.grey)),
-                                        ],
+                                    Flexible(
+                                      child: Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        child: Column(
+                                          children: [
+                                            const Text(
+                                                "No data shared with third parties",
+                                                style: TextStyle(
+                                                    color: Colors.grey)),
+                                          ],
+                                        ),
                                       ),
                                     )
                                   ],
@@ -187,23 +194,25 @@ class _AppDetailsState extends State<AppDetails> {
                                       Icons.cloud_download_outlined,
                                       color: Colors.grey,
                                     ),
-                                    Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 20),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: const [
-                                          Text(
-                                              "This app may collect these data types",
-                                              style: TextStyle(
-                                                  color: Colors.grey)),
-                                          SizedBox(height: 10),
-                                          Text(
-                                              "Location, Personal info and 5 others",
-                                              style: TextStyle(
-                                                  color: Colors.grey)),
-                                        ],
+                                    Flexible(
+                                      child: Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text(
+                                                "This app may collect these data types",
+                                                style: TextStyle(
+                                                    color: Colors.grey)),
+                                            SizedBox(height: 10),
+                                            Text(
+                                                "Location, Personal info and 5 others",
+                                                style: TextStyle(
+                                                    color: Colors.grey)),
+                                          ],
+                                        ),
                                       ),
                                     )
                                   ],
@@ -214,15 +223,17 @@ class _AppDetailsState extends State<AppDetails> {
                                       Icons.lock_outline_rounded,
                                       color: Colors.grey,
                                     ),
-                                    Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 20),
-                                      child: Column(
-                                        children: [
-                                          const Text("Data is encrypted",
-                                              style: TextStyle(
-                                                  color: Colors.grey)),
-                                        ],
+                                    Flexible(
+                                      child: Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        child: Column(
+                                          children: [
+                                            const Text("Data is encrypted",
+                                                style: TextStyle(
+                                                    color: Colors.grey)),
+                                          ],
+                                        ),
                                       ),
                                     )
                                   ],
@@ -233,16 +244,18 @@ class _AppDetailsState extends State<AppDetails> {
                                       Icons.delete_outline_rounded,
                                       color: Colors.grey,
                                     ),
-                                    Container(
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 20),
-                                      child: Column(
-                                        children: [
-                                          const Text(
-                                              "You can request that data to be deleted",
-                                              style: TextStyle(
-                                                  color: Colors.grey)),
-                                        ],
+                                    Flexible(
+                                      child: Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 20),
+                                        child: Column(
+                                          children: [
+                                            const Text(
+                                                "You can request that data to be deleted",
+                                                style: TextStyle(
+                                                    color: Colors.grey)),
+                                          ],
+                                        ),
                                       ),
                                     )
                                   ],
