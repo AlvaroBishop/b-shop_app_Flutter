@@ -8,7 +8,7 @@ class AppDetailsSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 75,
+      height: 80,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Expanded(
             child: CustomDetailsCard(

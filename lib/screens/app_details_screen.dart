@@ -100,7 +100,7 @@ class _AppDetailsState extends State<AppDetails> {
                 child: const CardDetailsSlider(),
               ),
               Container(
-                height: 200,
+                height: 210,
                 padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

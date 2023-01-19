@@ -14,7 +14,7 @@ class AppSlider extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.infinity,
-      height: 240,
+      height: 250,
       color: Colors.black87,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         if (title != null)
@@ -60,7 +60,7 @@ class _AppImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 130,
-      height: 140,
+      height: 160,
       margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
